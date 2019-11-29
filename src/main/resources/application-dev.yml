@@ -1,0 +1,60 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+  # database configuration
+  datasource:
+    url: jdbc:mysql://10.69.94.140:3306/tm-service?useUnicode=true&characterEncoding=UTF8&allowMultiQueries=true
+    driver-class-name: com.mysql.jdbc.Driver
+    username: gdcs-t
+    password: ioee123465
+  thymeleaf:
+    encoding: utf-8
+    servlet:
+      content-type: text/html
+
+  # rabbitmq configuration
+  rabbitmq:
+    addresses: 10.69.94.140:5672
+    username: guest
+    password: guest
+    template:
+      retry:
+        enabled: true
+        initial-interval: 30s
+      mandatory: true
+    publisher-confirms: true
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+      direct:
+        acknowledge-mode: manual
+
+  mail:
+    host: smtp.ap.schindler.com
+    port: 25
+    username: ioee@schindler.com
+    password: ""
+    protocol: smtp
+    default-encoding: utf-8
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      #mail.smtp.starttls.required: true
+      mail.smtp.socketFactory.fallback: false
+
+
+tm:
+  service:
+    admin:
+      username: admin
+      password: admin
+
+logging:
+  level:
+    com.schindler.ioee.tm_service.mybatis.mapper: trace
+  file: application.log
+
+server:
+  port: 8080

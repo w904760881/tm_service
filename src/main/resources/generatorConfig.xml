@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+    <context id="DemoTables" targetRuntime="MyBatis3" defaultModelType="flat">
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"></plugin>
+        <plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin"></plugin>
+        <!--<plugin type="org.mybatis.generator.plugins.MapperAnnotationPlugin"></plugin>-->
+        <!--<plugin type="com.itfsw.mybatis.generator.plugins.BatchInsertPlugin"></plugin>-->
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.69.94.140:3306/tm-service"
+                        userId="root"
+                        password="ioee@2018">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.schindler.ioee.tm_service.mybatis.model"
+                            targetProject="C:\Users\litim\Desktop\Temp\mybatis\src">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--<sqlMapGenerator targetPackage="com.schindler.ioee.mybatis.xml" targetProject="\spring-boot-demo\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>-->
+
+        <javaClientGenerator type="ANNOTATEDMAPPER" targetPackage="com.schindler.ioee.tm_service.mybatis.mapper"
+                             targetProject="C:\Users\litim\Desktop\Temp\mybatis\src">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <table tableName="User" domainObjectName="User">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table tableName="EquipmentOnlineStatus" domainObjectName="EquipmentOnlineStatus">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table tableName="EmailLog" domainObjectName="EmailLog">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+    </context>
+</generatorConfiguration>
